@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true);
     try {
       // Simulación de login - en producción sería una llamada a la API
-      const response = await fetch('http://localhost:3001/usuarios');
+      const response = await fetch('http://localhost:3002/usuarios');
       const usuarios = await response.json();
       
       const usuario = usuarios.find(u => u.email === email && u.password === password);
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }) => {
     setIsLoading(true);
     try {
       // Verificar si el email ya existe
-      const response = await fetch('http://localhost:3001/usuarios');
+      const response = await fetch('http://localhost:3002/usuarios');
       const usuarios = await response.json();
       
       const existingUser = usuarios.find(u => u.email === userData.email);
@@ -87,7 +87,7 @@ export const AuthProvider = ({ children }) => {
         activo: true
       };
 
-      const createResponse = await fetch('http://localhost:3001/usuarios', {
+      const createResponse = await fetch('http://localhost:3002/usuarios', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
